@@ -4,6 +4,7 @@ import Root from "./Root";
 import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
 import SignUp from "./screens/SignUp";
+import About from "./screens/About";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
       {
         path: "signup",
