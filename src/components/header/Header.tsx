@@ -5,21 +5,26 @@ import Mode from "./Mode";
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 15px;
+  margin: 15px 0px;
   align-items: center;
 `;
 
 const Tabs = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 35px;
+  gap: 10px;
 `;
-const Tab = styled.div`
-  padding: 10px;
-  border-radius: 10px;
-  transition: background-color 0.5s;
-  &:hover {
-    background-color: ${(props) => props.theme.iconHoverColor};
+export const Tab = styled.div`
+  cursor: pointer;
+  color: ${(props) => props.theme.icontextColor};
+  a:hover {
+    background-color: ${(props) => props.theme.iconbgColor};
+    color: ${(props) => props.theme.textColor};
+  }
+  a {
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
   }
 `;
 

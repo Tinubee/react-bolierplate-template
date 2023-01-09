@@ -1,52 +1,53 @@
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../../atoms";
+import { Tab } from "./Header";
 
 const ModeContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  justify-content: center;
   align-items: center;
-  div:hover,
-  a:hover {
+  div:hover {
     cursor: pointer;
-    background-color: ${(props) => props.theme.iconHoverColor};
-  }
-  a {
-    padding: 10px;
-    border-radius: 10px;
-    transition: background-color 0.5s;
+    background-color: ${(props) => props.theme.iconbgColor};
+    color: ${(props) => props.theme.textColor};
+    transition: background-color 0.5s, color 0.5s;
+    svg {
+      color: ${(props) => props.theme.textColor};
+    }
   }
   svg {
     font-size: 25px;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.icontextColor};
     transition: color 0.5s;
   }
 `;
 
 const Icon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.bgColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 25px;
 `;
 
 function Mode() {
-  const modeDark = useRecoilValue(isDarkAtom);
-  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const [darkAtom, setDarkAtom] = useRecoilState(isDarkAtom);
   const toggleMode = () => {
     setDarkAtom((prev) => !prev);
-    localStorage.setItem("mode", String(!modeDark));
+    localStorage.setItem("mode", String(!darkAtom));
   };
+
   return (
     <ModeContainer>
-      {!modeDark ? (
+      {!darkAtom ? (
         <Icon onClick={toggleMode}>
           <FontAwesomeIcon icon={faSun} />
         </Icon>
@@ -55,7 +56,9 @@ function Mode() {
           <FontAwesomeIcon icon={faMoon} />
         </Icon>
       )}
-      <Link to={"/login"}>Login</Link>
+      <Tab>
+        <Link to={"/login"}>Login</Link>
+      </Tab>
     </ModeContainer>
   );
 }
