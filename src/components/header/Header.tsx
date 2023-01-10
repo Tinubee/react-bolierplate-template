@@ -7,6 +7,11 @@ const HeaderContainer = styled.div`
   justify-content: space-around;
   margin: 15px 0px;
   align-items: center;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 `;
 
 const Tabs = styled.div`
