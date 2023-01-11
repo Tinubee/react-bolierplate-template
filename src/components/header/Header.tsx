@@ -5,7 +5,7 @@ import Mode from "./Mode";
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 15px 0px;
+  padding: 15px 0px;
   align-items: center;
   -ms-user-select: none;
   -moz-user-select: -moz-none;
