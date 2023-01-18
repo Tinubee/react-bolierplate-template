@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../../atoms";
-import Realistic from "../effects/Realistic";
+import Realistic from "../effects/realistic/Realistic";
 import { Tab } from "./Header";
 
 const ModeContainer = styled.div`

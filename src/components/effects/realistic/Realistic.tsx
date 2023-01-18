@@ -2,14 +2,16 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CreateTypes } from "canvas-confetti";
 import { Component } from "react";
-import { Icon } from "../header/Mode";
-import ReactCanvasConfetti from "./ReactCanvasConfetti";
+import { Icon } from "../../header/Mode";
+import ReactCanvasConfetti from "../ReactCanvasConfetti";
 
 export default class Realistic extends Component {
+  private isAnimationEnabled: boolean;
   private animationInstance: CreateTypes | null = null;
 
   constructor(props: {}) {
     super(props);
+    this.isAnimationEnabled = false;
     this.fire = this.fire.bind(this);
   }
 
@@ -52,6 +54,10 @@ export default class Realistic extends Component {
   }
 
   handlerFire = () => {
+    if (!this.isAnimationEnabled) {
+      this.isAnimationEnabled = true;
+    }
+    requestAnimationFrame(this.fire);
     this.fire();
   };
 

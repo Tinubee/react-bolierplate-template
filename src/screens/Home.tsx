@@ -1,4 +1,5 @@
 import JSConfetti from "js-confetti";
+
 function Home() {
   const jsConfetti = new JSConfetti();
 
