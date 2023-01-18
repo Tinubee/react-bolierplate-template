@@ -57,12 +57,12 @@ table {
   box-sizing: border-box;
 }
 .canvas{
-  height: 100%;
+  height: 100vh;
   left: 0px;
   pointer-events: none;
   position: fixed;
   top: 0px;
-  width: 100%;
+  width: 100vw;
 }
 body {
   font-weight: 600;

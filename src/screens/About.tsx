@@ -1,5 +1,6 @@
 import Fireworks from "../components/effects/fireworks/Fireworks";
 import SchoolPride from "../components/effects/schoolPride/SchoolPride";
+import Snow from "../components/effects/snow/Snow";
 
 function About() {
   return (
@@ -9,6 +10,9 @@ function About() {
       <hr />
       <div>Fireworks</div>
       <Fireworks />
+      <hr />
+      <div>Snow</div>
+      <Snow />
     </>
   );
 }

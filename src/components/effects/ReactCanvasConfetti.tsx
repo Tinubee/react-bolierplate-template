@@ -3,7 +3,7 @@ import canvasConfetti, {
   GlobalOptions,
   Options,
 } from "canvas-confetti";
-import React, { CSSProperties, RefObject } from "react";
+import { Component, createRef, CSSProperties, RefObject } from "react";
 
 export interface IProps extends Options, GlobalOptions {
   fire?: any;
@@ -18,14 +18,14 @@ export interface IProps extends Options, GlobalOptions {
   onReset?: () => void;
 }
 
-export default class ReactCanvasConfetti extends React.Component<IProps> {
+export default class ReactCanvasConfetti extends Component<IProps> {
   private refCanvas: RefObject<HTMLCanvasElement>;
 
   private confetti: CreateTypes | null;
 
   constructor(props: IProps) {
     super(props);
-    this.refCanvas = React.createRef();
+    this.refCanvas = createRef();
     this.confetti = null;
   }
 
@@ -123,6 +123,7 @@ export default class ReactCanvasConfetti extends React.Component<IProps> {
 
   render() {
     const { style, className, width, height } = this.props;
+
     return (
       <canvas
         ref={this.refCanvas}
