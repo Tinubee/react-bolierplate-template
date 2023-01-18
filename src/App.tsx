@@ -56,6 +56,14 @@ table {
 * {
   box-sizing: border-box;
 }
+.canvas{
+  height: 100%;
+  left: 0px;
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
 body {
   font-weight: 600;
   font-family: 'Source Sans Pro', sans-serif;

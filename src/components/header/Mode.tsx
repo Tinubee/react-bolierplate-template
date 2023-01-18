@@ -4,38 +4,40 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../../atoms";
+import Realistic from "../effects/Realistic";
 import { Tab } from "./Header";
 
 const ModeContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
+  place-items: center;
   div:hover {
     cursor: pointer;
-    background-color: ${(props) => props.theme.iconbgColor};
-    color: ${(props) => props.theme.textColor};
+    color: "${(props) => props.theme.textColor}";
     transition: background-color 0.5s, color 0.5s;
-    svg {
-      color: ${(props) => props.theme.textColor};
-    }
-  }
-  svg {
-    font-size: 25px;
-    color: ${(props) => props.theme.icontextColor};
-    transition: color 0.5s;
   }
 `;
 
-const Icon = styled.div`
+export const Icon = styled.div<{ mode: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.bgColor};
+  transition: background-color 0.5s, color 0.5s;
   padding: 25px;
+  color: ${(props) =>
+    props.mode === "normal" ? props.theme.icontextColor : "#b10000"};
+  :hover {
+    background-color: ${(props) => props.theme.iconbgColor};
+    color: ${(props) =>
+      props.mode === "normal" ? props.theme.textColor : "#ff0000"};
+  }
 `;
 
 function Mode() {
@@ -47,12 +49,13 @@ function Mode() {
 
   return (
     <ModeContainer>
+      <Realistic />
       {!darkAtom ? (
-        <Icon onClick={toggleMode}>
+        <Icon mode="normal" onClick={toggleMode}>
           <FontAwesomeIcon icon={faSun} />
         </Icon>
       ) : (
-        <Icon onClick={toggleMode}>
+        <Icon mode="normal" onClick={toggleMode}>
           <FontAwesomeIcon icon={faMoon} />
         </Icon>
       )}
