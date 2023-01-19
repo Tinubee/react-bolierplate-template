@@ -5,6 +5,7 @@ import { isDarkAtom } from "./atoms";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router";
 import JSConfetti from "js-confetti";
+import { HelmetProvider } from "react-helmet-async";
 
 export const conteffi = new JSConfetti();
 
@@ -87,10 +88,12 @@ function App() {
   const isDark = useRecoilValue(isDarkAtom);
 
   return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <GlobalStyle />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

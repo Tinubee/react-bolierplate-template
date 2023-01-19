@@ -1,5 +1,12 @@
+import PageTitle from "../components/PageTitle";
+
 function SignUp() {
-  return <h1>SignUp</h1>;
+  return (
+    <>
+      <PageTitle title="Sign Up"></PageTitle>
+      <h1>Home</h1>
+    </>
+  );
 }
 
 export default SignUp;

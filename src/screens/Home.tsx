@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { conteffi } from "../App";
+import PageTitle from "../components/PageTitle";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ function Home() {
 
   return (
     <Container>
+      <PageTitle title="Home"></PageTitle>
       <Button onClick={handleClick}>CLICK</Button>
     </Container>
   );
