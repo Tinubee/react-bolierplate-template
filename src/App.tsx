@@ -4,6 +4,9 @@ import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router";
+import JSConfetti from "js-confetti";
+
+export const conteffi = new JSConfetti();
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,

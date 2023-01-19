@@ -1,26 +1,29 @@
-import JSConfetti from "js-confetti";
+import styled from "styled-components";
+import { conteffi } from "../App";
+
+const Container = styled.div`
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.button``;
 
 function Home() {
-  const jsConfetti = new JSConfetti();
-
   const handleClick = () => {
-    jsConfetti.addConfetti({
-      // emojis: ["🔥"],
-      confettiColors: [
-        "#ff0a54",
-        "#ff477e",
-        "#ff7096",
-        "#ff85a1",
-        "#fbb1bd",
-        "#f9bec7",
-      ],
+    conteffi.addConfetti({
+      emojis: ["🍔", "🍕", "🍺"],
       emojiSize: 100,
-      confettiRadius: 5,
-      confettiNumber: 500,
+      confettiNumber: 30,
     });
   };
 
-  return <button onClick={handleClick}>CLICK</button>;
+  return (
+    <Container>
+      <Button onClick={handleClick}>CLICK</Button>
+    </Container>
+  );
 }
 
 export default Home;
